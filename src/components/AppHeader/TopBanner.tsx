@@ -35,23 +35,7 @@ const TopBanner = () => {
 
   return (
     <>
-      {!close && (
-        <div
-          className={classNames(
-            'text-center py-2 text-xs text-[#333333] bg-warning font-semibold relative animate-fade-in transition-all flex flex-col md:flex-row justify-center gap-2',
-            typeof closeCount !== 'undefined' ? `h-16 md:h-[34px]` : 'h-[0]',
-          )}
-        >
-          <span>{`Terminal v1 is deprecated, please migrate to v2.`}</span>
-          <button onClick={openV2Feature} type="button" className="flex justify-center space-x-1 underline">
-            {`Check out what's new in v2`}
-          </button>
 
-          <div className="cursor-pointer absolute right-4 top-2.5" onClick={handleClose}>
-            <CloseIcon width={12} height={12} />
-          </div>
-        </div>
-      )}
     </>
   );
 };

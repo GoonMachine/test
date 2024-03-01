@@ -19,7 +19,7 @@ module.exports = {
         'jupiter-jungle-green': '#24AE8F',
         'jupiter-primary': '#FBA43A',
         warning: '#FAA63C',
-        
+        'retardio-blue': "#253985",
         'v3-bg': 'rgba(28, 41, 54, 1)',
         'v3-primary': '#c7f284',
       },
@@ -27,7 +27,7 @@ module.exports = {
         xxs: ['0.625rem', '1rem'],
       },
       backgroundImage: {
-        'v3-text-gradient': 'linear-gradient(247.44deg, #C7F284 13.88%, #00BEF0 99.28%)',
+        'v3-text-gradient': 'linear-gradient(247.44deg, #FF3405 13.88%, #F3EA06 50.00%, #4DCE67 99.28%)',
       },
       keyframes: {
         shine: {

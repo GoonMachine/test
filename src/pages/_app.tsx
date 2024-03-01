@@ -2,6 +2,9 @@ import { UnifiedWalletButton, UnifiedWalletProvider } from '@jup-ag/wallet-adapt
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import React, { ReactNode, useEffect, useMemo, useState } from 'react';
+import Image from 'next/image';
+
+
 
 import 'tailwindcss/tailwind.css';
 import '../styles/globals.css';
@@ -69,9 +72,9 @@ export default function App({ Component, pageProps }: AppProps) {
               env: 'mainnet-beta',
               autoConnect: true,
               metadata: {
-                name: 'Jupiter Terminal',
+                name: 'retardex',
                 description: '',
-                url: 'https://terminal.jup.ag',
+                url: 'https://retardio.xyz/',
                 iconUrls: [''],
               },
               theme: 'jupiter',
@@ -86,30 +89,34 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <DefaultSeo
-        title={'Jupiter Terminal'}
+        title={'retardex'}
         openGraph={{
           type: 'website',
           locale: 'en',
-          title: 'Jupiter Terminal',
-          description: 'Jupiter Terminal: An open-sourced, lite version of Jupiter that provides end-to-end swap flow.',
-          url: 'https://terminal.jup.ag/',
-          site_name: 'Jupiter Terminal',
+          title: 'retardex',
+          description: 'sex on the solana block chain',
+          url: 'https://retardio.xyz/',
+          site_name: 'retardex',
           images: [
             {
-              url: `https://og.jup.ag/api/jupiter`,
-              alt: 'Jupiter Aggregator',
+              url: `https://retardio.xyz/`,
+              alt: 'retardex',
             },
           ],
         }}
         twitter={{
           cardType: 'summary_large_image',
-          site: 'jup.ag',
-          handle: '@JupiterExchange',
+          site: 'retardex',
+          handle: '@retardiosolana',
         }}
       />
 
-      <div className="bg-v3-bg h-screen w-screen max-w-screen overflow-x-hidden flex flex-col justify-between">
-        <div>
+<div className="h-screen w-screen max-w-screen overflow-x-hidden flex flex-col justify-between">
+  <div className="relative h-full w-full">
+    {/* Adjust layout and objectFit as needed */}
+    <Image src="/Group 962.png" layout="fill" objectFit="cover" alt="Background" />
+    <div className="absolute inset-0 bg-cover bg-center bg-no-repeat flex flex-col justify-between">
+      <div>
           <AppHeader />
 
           <div className="">
@@ -117,156 +124,56 @@ export default function App({ Component, pageProps }: AppProps) {
               <div className="flex flex-col justify-center items-center text-center">
                 <div className="flex space-x-2">
                   <V2SexyChameleonText className="text-4xl md:text-[52px] font-semibold px-4 pb-2 md:px-0">
-                    Jupiter Terminal
+                    retardex
                   </V2SexyChameleonText>
 
-                  <div className="px-1 py-0.5 bg-v3-primary rounded-md ml-2.5 font-semibold flex text-xs self-start">
-                    v2
+                  <div className="px-1 py-0.5 bg-[#4DCE67] rounded-md ml-2.5 font-semibold flex text-xs self-start">
+                    v0
                   </div>
                 </div>
-                <p className="text-[#9D9DA6] max-w-[100%] md:max-w-[60%] text-md mt-4 heading-[24px]">
-                  An open-sourced, lite version of Jupiter that provides end-to-end swap flow by linking it in your
-                  HTML. Check out the visual demo for the various integration modes below.
+                <p className="text-[#9D9DA6] max-w-[100%] md:max-w-[60%] text-md mb-6 heading-[24px]">
+                Retardio did 9/11
                 </p>
               </div>
 
-              <V2FeatureButton />
+              {/* <V2FeatureButton /> */}
             </div>
 
             <div className="flex justify-center">
-              <div className="max-w-6xl bg-black/25 mt-12 rounded-xl flex flex-col md:flex-row w-full md:p-4 relative">
+              <div className="max-w-6xl rounded-xl flex flex-col md:flex-row w-full md:p-4 relative">
                 {/* Desktop configurator */}
-                <div className="hidden md:flex">
-                  <FormConfigurator {...watchAllFields} reset={reset} setValue={setValue} formState={formState} />
-                </div>
 
                 <ShouldWrapWalletProvider>
-                  <div className="mt-8 md:mt-0 md:ml-4 h-full w-full bg-black/40 rounded-xl flex flex-col">
-                    {watchAllFields.simulateWalletPassthrough ? (
-                      <div className="absolute right-6 top-8 text-white flex flex-col justify-center text-center">
-                        <div className="text-xs mb-1">Simulate dApp Wallet</div>
-                        <UnifiedWalletButton />
-                      </div>
-                    ) : null}
-
-                    <div className="mt-4 flex justify-center ">
-                      <button
-                        onClick={() => {
-                          setTab('modal');
-                        }}
-                        type="button"
-                        className={classNames(
-                          '!bg-none relative px-4 justify-center',
-                          tab === 'modal' ? '' : 'opacity-20 hover:opacity-70',
-                        )}
-                      >
-                        <div className="flex items-center text-md text-white">
-                          {tab === 'modal' ? <V2SexyChameleonText>Modal</V2SexyChameleonText> : 'Modal'}
-                        </div>
-
-                        {tab === 'modal' ? (
-                          <div className="absolute left-0 bottom-[-8px] w-full h-0.5 bg-gradient-to-r from-v3-primary to-[#00BEF0]" />
-                        ) : (
-                          <div className="absolute left-0 bottom-[-8px] w-full h-[1px] bg-white/50" />
-                        )}
-                      </button>
-
-                      <button
-                        onClick={() => {
-                          setTab('integrated');
-                        }}
-                        type="button"
-                        className={classNames(
-                          '!bg-none relative px-4 justify-center',
-                          tab === 'integrated' ? '' : 'opacity-20 hover:opacity-70',
-                        )}
-                      >
-                        <div className="flex items-center text-md text-white">
-                          {tab === 'integrated' ? <V2SexyChameleonText>Integrated</V2SexyChameleonText> : 'Integrated'}
-                        </div>
-                        {tab === 'integrated' ? (
-                          <div className="absolute left-0 bottom-[-8px] w-full h-0.5 bg-gradient-to-r from-v3-primary to-[#00BEF0]" />
-                        ) : (
-                          <div className="absolute left-0 bottom-[-8px] w-full h-[1px] bg-white/50" />
-                        )}
-                      </button>
-
-                      <button
-                        onClick={() => {
-                          setTab('widget');
-                        }}
-                        type="button"
-                        className={classNames(
-                          '!bg-none relative px-4 justify-center',
-                          tab === 'widget' ? '' : 'opacity-20 hover:opacity-70',
-                        )}
-                      >
-                        <div className="flex items-center text-md text-white">
-                          {tab === 'widget' ? <V2SexyChameleonText>Widget</V2SexyChameleonText> : 'Widget'}
-                        </div>
-
-                        {tab === 'widget' ? (
-                          <div className="absolute left-0 bottom-[-8px] w-full h-0.5 bg-gradient-to-r from-v3-primary to-[#00BEF0]" />
-                        ) : (
-                          <div className="absolute left-0 bottom-[-8px] w-full h-[1px] bg-white/50" />
-                        )}
-                      </button>
+                <div className="mt-2 md:mt-0 md:ml-4 h-full w-full rounded-xl flex flex-col">
+                  {watchAllFields.simulateWalletPassthrough && (
+                    <div className="absolute right-6 top-8 text-white flex flex-col justify-center text-center">
+                      <UnifiedWalletButton />
                     </div>
-
-                    <span className="flex justify-center text-center text-xs text-[#9D9DA6] mt-4">
-                      {tab === 'modal' ? 'Jupiter renders as a modal and takes up the whole screen.' : null}
-                      {tab === 'integrated' ? 'Jupiter renders as a part of your dApp.' : null}
-                      {tab === 'widget'
-                        ? 'Jupiter renders as part of a widget that can be placed at different positions on your dApp.'
-                        : null}
-                    </span>
-
-                    <div className="flex flex-grow items-center justify-center text-white/75">
-                      {tab === 'modal' ? (
-                        <ModalTerminal
-                          rpcUrl={rpcUrl}
-                          formProps={watchAllFields.formProps}
-                          simulateWalletPassthrough={watchAllFields.simulateWalletPassthrough}
-                          strictTokenList={watchAllFields.strictTokenList}
-                          defaultExplorer={watchAllFields.defaultExplorer}
-                        />
-                      ) : null}
-                      {tab === 'integrated' ? (
-                        <IntegratedTerminal
-                          rpcUrl={rpcUrl}
-                          formProps={watchAllFields.formProps}
-                          simulateWalletPassthrough={watchAllFields.simulateWalletPassthrough}
-                          strictTokenList={watchAllFields.strictTokenList}
-                          defaultExplorer={watchAllFields.defaultExplorer}
-                        />
-                      ) : null}
-                      {tab === 'widget' ? (
-                        <WidgetTerminal
-                          rpcUrl={rpcUrl}
-                          formProps={watchAllFields.formProps}
-                          simulateWalletPassthrough={watchAllFields.simulateWalletPassthrough}
-                          strictTokenList={watchAllFields.strictTokenList}
-                          defaultExplorer={watchAllFields.defaultExplorer}
-                        />
-                      ) : null}
-                    </div>
+                  )}
+                  {/* Your IntegratedTerminal component */}
+                  <div className="flex flex-grow items-center justify-center text-white/75">
+                    <IntegratedTerminal
+                      rpcUrl={rpcUrl}
+                      formProps={{
+                        initialAmount: "10",
+                        fixedAmount: false,
+                        initialInputMint: "So11111111111111111111111111111111111111112",
+                        fixedInputMint: false,
+                        initialOutputMint: "6ogzHhzdrQr9Pgv6hZ2MNze7UrzBMAFyBBWUYp1Fhitx",
+                        fixedOutputMint: true
+                      }}                      simulateWalletPassthrough={watchAllFields.simulateWalletPassthrough}
+                      strictTokenList={false}
+                      defaultExplorer={watchAllFields.defaultExplorer}
+                    />
                   </div>
-                </ShouldWrapWalletProvider>
-              </div>
-            </div>
-            {/* Mobile configurator */}
-            <div className="flex md:hidden">
-              <FormConfigurator {...watchAllFields} reset={reset} setValue={setValue} formState={formState} />
+                </div>
+              </ShouldWrapWalletProvider>
             </div>
           </div>
         </div>
-
-        <CodeBlocks formConfigurator={watchAllFields} displayMode={tab} />
-
-        <div className="w-full mt-12">
-          <Footer />
-        </div>
+      </div>
+      </div>
+      </div>
       </div>
     </>
-  );
-}
+  )};
